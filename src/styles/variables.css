@@ -1,0 +1,22 @@
+:root {
+  /* размеры */
+  --radius: 4px;
+
+  /* цвета */
+  --border-color: #acaab4;
+  --element-color: #5e5d67;
+  --bg-hover: #acaab4;
+  --bg-color: #ffffff;
+
+  /* текст */
+  --font-family: Roboto, sans-serif;
+  --font-size: 12px;
+  --text-color: #1b1b23;
+  --text-date: #52515b;
+}
+
+[data-theme='dark'] {
+  --bg-color: #27272a;
+  --text-color: #e5e7eb;
+  --border-color: #3f3f46;
+}

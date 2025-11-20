@@ -1,0 +1,31 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px;
+  background: var(--bg-control);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+
+  cursor: pointer;
+  color: var(--text-color);
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.button:hover {
+  background: var(--bg-hover);
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.square {
+  width: 27px;
+  height: 27px;
+}
