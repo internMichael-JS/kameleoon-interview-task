@@ -4,6 +4,7 @@ import path from 'path';
 import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
+  base: '/kameleoon-interview-task/',
   plugins: [
     react(),
     svgr({
