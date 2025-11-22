@@ -1,4 +1,4 @@
-import { getSelectFieldOptions } from "@/utils/getSelectFieldOptions";
+import { getSelectFieldOptions } from "@/utils/helpers/getSelectFieldOptions";
 import { SelectField } from "./SelectField/SelectField";
 import { ZoomControls } from "./ZoomControls/ZoomControls";
 import { LINE_SELECTOR, PERIOD_SELECTOR } from "@/utils/constants";

@@ -1,0 +1,10 @@
+.buttonWrap{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 10px;
+}
+.element{
+    width: 20px;
+    height: 20px;
+}
