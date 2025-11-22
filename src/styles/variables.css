@@ -7,16 +7,23 @@
   --element-color: #5e5d67;
   --bg-hover: #acaab4;
   --bg-color: #ffffff;
+  --bg-button-color: #ffffff;
+  --line-color: #46464F;
 
   /* текст */
   --font-family: Roboto, sans-serif;
   --font-size: 12px;
   --text-color: #1b1b23;
-  --text-date: #52515b;
+  --text-date: #918F9A;
 }
 
-[data-theme='dark'] {
-  --bg-color: #27272a;
-  --text-color: #e5e7eb;
-  --border-color: #3f3f46;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #27272a;
+    --text-color: #918F9A;
+    --border-color: #ffffff;
+    --line-color: #C7C5D0;
+    --element-color: #ffffff;
+    --bg-button-color:  #C7C5D0;
+  }
 }

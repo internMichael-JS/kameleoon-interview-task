@@ -1,7 +1,7 @@
 export const LINE_SELECTOR: Record<string, string> = {
-  LINE: 'Line',
-  SMOOTH: 'Smooth',
-  AREA: 'Area',
+  LINE: 'Line stile: line',
+  SMOOTH: 'Line stile: smooth',
+  AREA: 'Line stile: area',
 } as const;
 
 export const PERIOD_SELECTOR: Record<string, string> = {

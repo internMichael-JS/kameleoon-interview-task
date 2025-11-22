@@ -1,12 +1,15 @@
 import { getSelectFieldOptions } from "@/utils/getSelectFieldOptions";
 import { SelectField } from "./SelectField/SelectField";
 import { ZoomControls } from "./ZoomControls/ZoomControls";
-import { LINE_SELECTOR, PERIOD_SELECTOR, VARIANT_SELECTOR } from "@/utils/constants";
+import { LINE_SELECTOR, PERIOD_SELECTOR } from "@/utils/constants";
+
+import {type Option} from '@/utils/types'
 
 import styles from './ControlPanel.module.css'
 
 type ControlsPanelProps = {
-    variations: string;
+    variations: Option[];
+    selectedVariation: string;
     period: string;
     line: string;
     onChangeVariation: (value: string) => void;
@@ -19,6 +22,7 @@ type ControlsPanelProps = {
 
 export const ControlsPanel: React.FC<ControlsPanelProps> = ({
     variations,
+    selectedVariation,
     period,
     line,
     onChangeVariation,
@@ -32,9 +36,9 @@ export const ControlsPanel: React.FC<ControlsPanelProps> = ({
         <div className={styles.panel}>
             <div className={styles.left}>
                 <SelectField
-                    value={variations}
+                    value={selectedVariation}
                     onChange={onChangeVariation}
-                    options={getSelectFieldOptions.call(null, VARIANT_SELECTOR)}
+                    options={variations}
                 />
 
                 <SelectField

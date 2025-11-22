@@ -12,11 +12,11 @@ export const ZoomControls: React.FC<ZoomControlsProps> = ({ zoomIn, zoomOut, res
   return (
     <div className={styles.wrapper}>
       <div className={styles.group}>
-        <IconButton icon={<MinusIcon />} onClick={zoomOut} />
-        <IconButton icon={<PlusIcon />} onClick={zoomIn} />
+        <IconButton icon={<MinusIcon className={styles.element}/>} onClick={zoomOut} />
+        <IconButton icon={<PlusIcon className={styles.element}/>} onClick={zoomIn} />
       </div>
 
-      <IconButton icon={<FetchIcon />} onClick={reset} />
+      <IconButton icon={<FetchIcon className={styles.element}/>} onClick={reset} />
     </div>
   );
 };

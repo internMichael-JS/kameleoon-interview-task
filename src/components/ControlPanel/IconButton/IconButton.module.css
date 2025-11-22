@@ -4,16 +4,12 @@
   justify-content: center;
 
   padding: 8px;
-  background: var(--bg-control);
+  background: var(--bg-button-color);
   border: 1px solid var(--border-color);
   border-radius: var(--radius);
 
   cursor: pointer;
   color: var(--text-color);
-
-  transition:
-    background 0.15s ease,
-    border-color 0.15s ease;
 }
 
 .button:hover {
