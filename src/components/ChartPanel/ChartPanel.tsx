@@ -10,15 +10,15 @@ import {
 } from 'recharts';
 
 import { CustomTooltip } from './CustomTooltip/CustomTooltip';
-import { variantColors } from '@/utils/variantsColors';
+import { TEXT_CONSTANTS, VARIANT_COLORS, VARIANT_SELECTOR } from '@/utils/constants';
 import { formatMonth } from '@/utils/helpers/formatMonth';
 
-import { type Option, type ProcessedData, type RawRow } from '@/utils/types';
+import { type ChartRow, type Option, type ProcessedData } from '@/utils/types';
 import { getDomain } from '@/utils/helpers/getDomain';
 import { useCallback, useMemo } from 'react';
 import { aggregateByWeek } from '@/utils/helpers/aggregateByWeek';
 import { PERIOD_SELECTOR } from '@/utils/constants';
-import { IconButton } from '@/utils/IconButton/IconButton';
+import { IconButton } from '@/components/IconButton/IconButton';
 import { SaveIcon } from '@/assets/icons';
 
 import styles from './ChartPanel.module.css';
@@ -26,7 +26,7 @@ import { useGenerateImage } from 'recharts-to-png';
 import FileSaver from 'file-saver';
 
 interface ChartProps {
-  data: RawRow[];
+  data: ChartRow[];
   selectedVariation: string;
   lineStyle: string;
   variations: Option[];
@@ -56,7 +56,7 @@ export const Chart = ({
   if (!data.length) return null;
 
   const renderLine = (lineStyle: string, selectedVariation: string) => {
-    const color = variantColors[selectedVariation] || variantColors[0];
+    const color = VARIANT_COLORS[selectedVariation] || VARIANT_COLORS[0];
     switch (lineStyle) {
       case 'LINE':
         return (
@@ -123,7 +123,7 @@ export const Chart = ({
               tickFormatter={value => formatMonth(value)}
               tickLine={false}
               allowDataOverflow={true}
-              domain={['2025-01-02', '2025-01-29']}
+              domain={['auto', 'auto']}
             />
 
             <YAxis
@@ -138,7 +138,7 @@ export const Chart = ({
               content={<CustomTooltip processedData={processedData} />}
               cursor={{ strokeDasharray: '4 4' }}
             />
-            {selectedVariation !== 'All variations selected'
+            {selectedVariation !== VARIANT_SELECTOR.ALL
               ? renderLine(lineStyle, selectedVariation)
               : variations.map(el => renderLine(lineStyle, el.label))}
 
@@ -151,9 +151,9 @@ export const Chart = ({
         </ResponsiveContainer>
       </div>
       <div className={styles.buttonWrap}>
-        <span>{'You can save this as PNG image ->'}</span>
+        <span>{TEXT_CONSTANTS.EXPORT_TEXT}</span>
         <IconButton
-          icon={<SaveIcon className={styles.element} title="Export to PNG" />}
+          icon={<SaveIcon className={styles.element} title={TEXT_CONSTANTS.EXPORT_TITLE} />}
           onClick={handleDivDownload}
         />
       </div>

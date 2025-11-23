@@ -1,4 +1,4 @@
-import { ChartContainer } from './components/ChartConteiner/ChartConteiner';
+import { ChartContainer } from '@/components/ChartContainer/ChartContainer';
 
 import styles from './App.module.css';
 

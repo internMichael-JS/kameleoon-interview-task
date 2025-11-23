@@ -21,18 +21,18 @@ export type ProcessedData = {
 };
 
 export type CustomTooltipPayload = {
-  color?: string;
   dataKey: string;
+  name: string;
+  value: number | null;
   fill?: string;
   hide?: boolean;
-  name: string;
+  color?: string;
   nameKey?: string | undefined;
   payload?: Record<string, string | number>;
   stroke?: string;
   strokeWidth?: number;
   type?: string | undefined;
   unit?: string | undefined;
-  value: number | null;
 };
 
 export type ChartRow = {

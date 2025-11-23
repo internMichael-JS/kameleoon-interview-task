@@ -1,6 +1,6 @@
-import type { RawRow, WeekAggregation } from '@/utils/types';
+import type { ChartRow,  WeekAggregation } from '@/utils/types';
 
-export const aggregateByWeek = (data: RawRow[]) => {
+export const aggregateByWeek = (data: ChartRow[]) => {
   const variations = ['Original', 'Variation A', 'Variation B', 'Variation C'];
   const weeks: Record<string, WeekAggregation> = {};
 
@@ -26,7 +26,7 @@ export const aggregateByWeek = (data: RawRow[]) => {
     if (item.date > weeks[weekKey].end) weeks[weekKey].end = item.date;
 
     variations.forEach(key => {
-      const val = item[key as keyof RawRow];
+      const val = item[key as keyof ChartRow];
       if (typeof val === 'number') {
         weeks[weekKey].values[key].push(val);
       }

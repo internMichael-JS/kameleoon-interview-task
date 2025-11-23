@@ -1,4 +1,4 @@
-import { LINE_SELECTOR, PERIOD_SELECTOR } from '@/utils/constants';
+import { LINE_SELECTOR, PERIOD_SELECTOR, VARIANT_SELECTOR } from '@/utils/constants';
 import { ControlsPanel } from '../ControlPanel/ControlPanel';
 import { useState } from 'react';
 import { Chart } from '../ChartPanel/ChartPanel';
@@ -7,7 +7,7 @@ import { useChartData } from '@/hooks/useChartData';
 export const ChartContainer = () => {
   const { variations, chartData } = useChartData();
   const variationsWithAll = [
-    { label: 'All variations selected', value: 'All variations selected' },
+    { label: VARIANT_SELECTOR.ALL, value: VARIANT_SELECTOR.ALL },
     ...variations,
   ];
 

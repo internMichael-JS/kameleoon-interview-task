@@ -1,5 +1,5 @@
 import { FetchIcon, MinusIcon, PlusIcon } from '@/assets/icons';
-import { IconButton } from '../../../utils/IconButton/IconButton';
+import { IconButton } from '../../IconButton/IconButton';
 import styles from './ZoomControls.module.css';
 
 type ZoomControlsProps = {

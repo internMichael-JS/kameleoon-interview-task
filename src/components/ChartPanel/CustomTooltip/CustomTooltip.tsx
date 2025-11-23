@@ -1,17 +1,17 @@
-import { variantColors } from '@/utils/variantsColors';
+import { VARIANT_COLORS } from '@/utils/constants';
 import styles from './CustomTooltip.module.css';
 import { CalendarIcon, CupIcon } from '@/assets/icons';
 import type {
+  ChartRow,
   CustomTooltipPayload,
   ProcessedData,
-  RawRow,
 } from '@/utils/types';
 
 type CustomTooltipProps = {
+  processedData: ChartRow[] | ProcessedData[];
   active?: boolean;
   payload?: CustomTooltipPayload[];
   label?: string;
-  processedData: RawRow[] | ProcessedData[];
 };
 
 export const CustomTooltip: React.FC<CustomTooltipProps> = ({
@@ -23,7 +23,7 @@ export const CustomTooltip: React.FC<CustomTooltipProps> = ({
   if (!active || !payload || !payload.length) return null;
 
   const row = processedData.find(item => {
-    if (!('start' in item)) return false;
+    if (item.start === null || item.end === null) return false;
 
     const point = new Date(label).getTime();
     const start = new Date(item.start).getTime();
@@ -33,16 +33,17 @@ export const CustomTooltip: React.FC<CustomTooltipProps> = ({
   });
 
   const range =
-    row && 'start' in row
+    row && row.start && row.end
       ? `${new Intl.DateTimeFormat('en-GB').format(
-          new Date(row.start),
-        )} - ${new Intl.DateTimeFormat('en-GB').format(new Date(row.end))}`
+        new Date(row.start),
+      )} - ${new Intl.DateTimeFormat('en-GB').format(new Date(row.end))}`
       : new Intl.DateTimeFormat('en-GB').format(new Date(label));
 
-  const weekPayload = row && 'payload' in row ? row.payload : null;
 
-  const sourcePayload = weekPayload ?? payload;
-
+  const sourcePayload = row?.payload ?? payload;
+  if (!Array.isArray(sourcePayload)) {
+    return []
+  }
   const newPayload = [...sourcePayload].sort(
     (a, b) => Number(b.value) - Number(a.value),
   );
@@ -58,7 +59,7 @@ export const CustomTooltip: React.FC<CustomTooltipProps> = ({
         {newPayload.map((entry, index) => {
           const name = entry.dataKey || entry.name;
           const value = entry.value;
-          const color = variantColors[name] || variantColors[0];
+          const color = VARIANT_COLORS[name] || VARIANT_COLORS[0];
 
           return (
             <div className={styles.row} key={name}>

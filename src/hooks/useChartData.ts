@@ -3,8 +3,8 @@ import dataRaw from '../data/data.json';
 import type { ChartRow, RawRow } from '@/utils/types';
 
 type Variation = {
-  id?: number;
   name: string;
+  id?: number;
 };
 
 type RawFile = {
@@ -21,7 +21,7 @@ export function useChartData() {
       label: v.name,
     }));
 
-    const transformed = rawData.data.map(row => {
+    const transformed:ChartRow[] = rawData.data.map(row => {
       const obj: ChartRow = { date: row.date };
 
       variationMap.forEach(v => {
