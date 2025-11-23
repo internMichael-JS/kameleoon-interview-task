@@ -22,14 +22,13 @@ export function useChartData() {
     }));
 
     const transformed = rawData.data.map(row => {
-      const obj: any= { date: row.date };
+      const obj: any = { date: row.date };
 
       variationMap.forEach(v => {
         const visits = row.visits[v.value] ?? 0;
         const conversions = row.conversions[v.value] ?? 0;
 
-        obj[v.label] =
-          visits > 0 ? (conversions / visits) * 100 : null; 
+        obj[v.label] = visits > 0 ? (conversions / visits) * 100 : null;
       });
 
       return obj;

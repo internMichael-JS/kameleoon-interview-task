@@ -8,22 +8,22 @@
   --bg-hover: #acaab4;
   --bg-color: #ffffff;
   --bg-button-color: #ffffff;
-  --line-color: #46464F;
+  --line-color: #46464f;
 
   /* текст */
   --font-family: Roboto, sans-serif;
   --font-size: 12px;
   --text-color: #1b1b23;
-  --text-date: #918F9A;
+  --text-date: #918f9a;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-color: #27272a;
-    --text-color: #918F9A;
+    --text-color: #918f9a;
     --border-color: #ffffff;
-    --line-color: #C7C5D0;
+    --line-color: #c7c5d0;
     --element-color: #ffffff;
-    --bg-button-color:  #C7C5D0;
+    --bg-button-color: #c7c5d0;
   }
 }

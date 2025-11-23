@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import styles from './SelectField.module.css';
 import { ArrowIcon } from '@/assets/icons';
 
-import {type Option} from '@/utils/types'
+import { type Option } from '@/utils/types';
 
 interface Props {
   label?: string;

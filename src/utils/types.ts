@@ -1,7 +1,7 @@
 export type Option = {
   label: string;
   value: string;
-}
+};
 
 export type RawRow = {
   date: string;
@@ -18,7 +18,7 @@ export type ProcessedData = {
     name: string;
     value: number | null;
   }[];
-}
+};
 
 export type CustomTooltipPayload = {
   color?: string;
@@ -27,13 +27,13 @@ export type CustomTooltipPayload = {
   hide?: boolean;
   name: string;
   nameKey?: string | undefined;
-  payload?: Record<string, string | number>
+  payload?: Record<string, string | number>;
   stroke?: string;
   strokeWidth?: number;
   type?: string | undefined;
   unit?: string | undefined;
   value: number | null;
-}
+};
 
 export type ChartRow = {
   date: string;
