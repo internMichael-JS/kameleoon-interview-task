@@ -1,5 +1,7 @@
+import type { RawRow } from "@/utils/types";
+
 export function getDomain(
-  data: any[],
+  data: RawRow[],
   selectedVariation: string,
   zoom: number,
 ): [number, number] {
@@ -8,7 +10,11 @@ export function getDomain(
   let keys: string[] = [];
 
   if (selectedVariation === 'All variations selected') {
-    keys = Object.keys(data[0]).filter(k => typeof data[0][k] === 'number');
+    keys = Object.keys(data[0]).filter(k => {
+      const key = k as keyof RawRow;
+      return typeof data[0][key] === 'number';
+    });
+    console.log('k', data[0],)
   } else {
     keys = [selectedVariation];
   }
@@ -17,7 +23,7 @@ export function getDomain(
 
   for (const row of data) {
     for (const key of keys) {
-      const val = row[key];
+      const val = row[key as keyof RawRow];
       if (typeof val === 'number' && !isNaN(val)) {
         values.push(val);
       }

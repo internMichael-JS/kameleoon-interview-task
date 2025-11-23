@@ -15,3 +15,8 @@ export const VARIANT_SELECTOR: Record<string, string> = {
   VARIANT_B: 'Variant B',
   VARIANT_C: 'Variant C',
 } as const;
+
+export const TEXT_CONSTANTS: Record<string, string> = {
+  DAY: 'Day',
+  WEEK: 'Week',
+} as const;

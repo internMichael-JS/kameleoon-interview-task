@@ -33,7 +33,7 @@ export const aggregateByWeek = (data: RawRow[]) => {
     });
   });
 
-  return Object.values(weeks).map((week: any) => {
+  return Object.values(weeks).map((week: WeekAggregation) => {
     const payload = variations.map(key => {
       const arr = week.values[key];
       if (!arr.length) {

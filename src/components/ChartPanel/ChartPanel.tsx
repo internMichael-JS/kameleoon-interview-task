@@ -113,8 +113,6 @@ export const Chart = ({
     return data;
   }, [data, selectedPeriod]);
 
-  console.log(data);
-
   return (
     <>
       <div ref={chartRef}>

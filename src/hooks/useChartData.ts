@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import dataRaw from '../data/data.json';
-import type { RawRow } from '@/utils/types';
+import type { ChartRow, RawRow } from '@/utils/types';
 
 type Variation = {
   id?: number;
@@ -22,7 +22,7 @@ export function useChartData() {
     }));
 
     const transformed = rawData.data.map(row => {
-      const obj: any = { date: row.date };
+      const obj: ChartRow = { date: row.date };
 
       variationMap.forEach(v => {
         const visits = row.visits[v.value] ?? 0;
