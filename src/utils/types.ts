@@ -39,3 +39,10 @@ export type ChartRow = {
   date: string;
   [variationName: string]: number | string | null;
 };
+
+export type WeekAggregation = {
+  date: string;
+  start: string;
+  end: string;
+  values: Record<string, number[]>;
+}

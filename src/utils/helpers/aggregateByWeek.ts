@@ -1,8 +1,8 @@
-import type { RawRow } from './types';
+import type { RawRow, WeekAggregation } from '@/utils/types';
 
 export const aggregateByWeek = (data: RawRow[]) => {
   const variations = ['Original', 'Variation A', 'Variation B', 'Variation C'];
-  const weeks: Record<string, any> = {};
+  const weeks: Record<string, WeekAggregation> = {};
 
   data.forEach(item => {
     const dateObj = new Date(item.date);
