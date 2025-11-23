@@ -1,6 +1,6 @@
 export const LINE_SELECTOR: Record<string, string> = {
-  LINE: 'Line stile: line',
-  SMOOTH: 'Line stile: smooth',
+  LINE: 'Line style: line',
+  SMOOTH: 'Line style: smooth',
   AREA: 'Line stile: area',
 } as const;
 
