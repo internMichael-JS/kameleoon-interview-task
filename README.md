@@ -5,7 +5,7 @@
 ##  Live Demo
 
 Проект опубликован на GitHub Pages:  
-**https://internMichael-JS.github.io/kameleoon-interview-task/**
+**[https://internMichael-JS.github.io/kameleoon-interview-task/](https://michael-js-bel.github.io/kameleoon-interview-task/)**
 
 ---
 
